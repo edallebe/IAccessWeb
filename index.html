@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="./frontend/script.js" defer></script>
+    <title>IAccess</title>
+</head>
+<body>
+    <h1>Registro de usuari</h1>
+    <div>
+        <form id="registro">
+            <div>
+                <label for="nombre">Nombres: </label>
+                <input type="text" id="nombre" placeholder="" value="">
+                <br>
+
+                <label for="apellidos">Apellidos: </label>
+                <input type="text" id="apellidos" placeholder="">
+                <br>
+                
+                <label for="email">Correo institucional: </label>
+                <input type="text" id="email" placeholder="">
+                <br>
+
+                <label for="tipo">Tipo usuario</label>
+                <input type="text" id="tipo" placeholder="">
+                <br>
+
+                <label for="contrasena">Contraseña: </label>
+                <input type="password" id="contrasena" placeholder="">
+                <br>
+                
+                <label for="contrasenaC">Confirmación de Contraseña: </label>
+                <input type="password" id="contrasenaC" placeholder="">
+                <br><br><br>
+
+                <input type="submit" onclick="guardar(event)" value="Registrar">
+            </div>
+        </form>
+    </div>
+
+    <h1>Ver usuarios</h1>
+    <div>
+        <form id="listarUsuarios">
+            <ul id="userlist"></ul>
+            <input type="submit" onclick="listar(event)" value="Ver usuarios">
+        </form>
+    </div>
+
+    <h1>Modificar usuario</h1>
+    <div>
+        <form id="ModificarUsuario">
+            <div>
+                <label for="nombreU">Nombres: </label>
+                <input type="text" id="nombreU" placeholder="" value="000000">
+                <br>
+
+                <label for="apellidosU">Apellidos: </label>
+                <input type="text" id="apellidosU" placeholder="">
+                <br>
+                
+                <label for="emailU">Correo institucional</label>
+                <input type="text" id="emailU" placeholder="">
+                <br>
+                
+                <label for="tipoU">Tipo usuario</label>
+                <input type="text" id="tipoU" placeholder="">
+                <br>
+
+                <label for="contrasenaU">Contraseña: </label>
+                <input type="password" id="contrasenaU" placeholder="">
+                <br>
+                
+                <label for="contrasenaCU">Confirmación de Contraseña: </label>
+                <input type="password" id="contrasenaCU" placeholder="">
+                <br><br><br>
+
+                <input type="button" onclick="actualizar()" value="actualizar">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

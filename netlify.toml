@@ -1,19 +1,8 @@
-[
-build
-]
+[build]
+  command = "npm run build"
+  publish = "dist"
   functions = "netlify/functions"
-  publish = "."
 
-[[
-redirects
-]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-[[
-redirects
-]]
-  from = "/api/*"
-  to = "/.netlify/functions/users/:splat"
-  status = 200
+[dev]
+  functions = "netlify/functions"
+  command = "npm run dev"

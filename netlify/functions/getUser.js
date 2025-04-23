@@ -3,7 +3,7 @@ const admin = require('./firebaseAdmin.js');
 exports.handler = async (event, context) => {
   try {
     const userId = event.queryStringParameters.id;
-    const userDoc = await admin.firestore().collection('users').doc("user123").get();
+    const userDoc = await admin.firestore().collection('users').doc(userId).get();
  
     if (!userDoc.exists) {
       return {

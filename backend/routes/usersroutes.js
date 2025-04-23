@@ -1,10 +1,23 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const usercontroller = require("../controllers/userscontrollers.js");
+const usersController = require('../controllers/userscontrollers');
 
-router.get("/", usercontroller.consultar);
-router.post("/", usercontroller.ingresar);
-router.put("/", usercontroller.actualizar);
-router.delete("/", usercontroller.borrar);
+// GET - Get all users
+router.get('/user', usersController.getAll);
+
+// GET - Get user by ID
+router.get('/user/:id', usersController.getById);
+
+// POST - Register a new user
+router.post('/user', usersController.register);
+
+// POST - Login user
+router.post('/user/login', usersController.login);
+
+// PUT - Update user
+router.put('/user/:id', usersController.update);
+
+// DELETE - Delete user
+router.delete('/user/:id', usersController.delete);
 
 module.exports = router;

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IAccess</title>
+  <title>Editar Usuario - Sistema de Usuarios</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -52,13 +52,15 @@
     button:hover {
       background-color: #45a049;
     }
-    .success {
-      color: green;
-      font-weight: bold;
+    .button-group {
+      display: flex;
+      justify-content: space-between;
     }
-    .error {
-      color: red;
-      font-weight: bold;
+    .cancel-btn {
+      background-color: #f44336;
+    }
+    .cancel-btn:hover {
+      background-color: #d32f2f;
     }
     .nav {
       display: flex;
@@ -73,37 +75,37 @@
   </style>
 </head>
 <body>
-  <h1>IAccess</h1>
+  <h1>Sistema de Usuarios</h1>
   
   <div id="user-info"></div>
   
   <div class="nav">
-    <a href="index.html">Inicio</a>
-    <a href="register.html">Registro</a>
-    <a href="login.html">Iniciar Sesión</a>
+    <a href="dashboard.html">Volver al Panel</a>
   </div>
   
   <div class="form-container">
-    <h2>Registro de Usuario</h2>
-    <form id="register-form">
+    <h2>Editar Usuario</h2>
+    <form id="edit-form">
+      <input type="hidden" id="edit-id" name="id">
+      
       <div class="form-group">
-        <label for="nombres">Nombres:</label>
-        <input type="text" id="nombres" name="nombres" required>
+        <label for="edit-nombres">Nombres:</label>
+        <input type="text" id="edit-nombres" name="nombres" required>
       </div>
       
       <div class="form-group">
-        <label for="apellidos">Apellidos:</label>
-        <input type="text" id="apellidos" name="apellidos" required>
+        <label for="edit-apellidos">Apellidos:</label>
+        <input type="text" id="edit-apellidos" name="apellidos" required>
       </div>
       
       <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <label for="edit-email">Email:</label>
+        <input type="email" id="edit-email" name="email" required>
       </div>
       
       <div class="form-group">
-        <label for="tipoUsuario">Tipo de Usuario:</label>
-        <select id="tipoUsuario" name="tipoUsuario" required>
+        <label for="edit-tipo-usuario">Tipo de Usuario:</label>
+        <select id="edit-tipo-usuario" name="tipoUsuario" required>
           <option value="">Seleccione un tipo</option>
           <option value="Gestor">Gestor</option>
           <option value="Administrador">Administrador</option>
@@ -112,23 +114,19 @@
       </div>
       
       <div class="form-group">
-        <label for="nombreUsuario">Nombre de Usuario:</label>
-        <input type="text" id="nombreUsuario" name="nombreUsuario" required>
+        <label for="edit-nombre-usuario">Nombre de Usuario:</label>
+        <input type="text" id="edit-nombre-usuario" name="nombreUsuario" required>
       </div>
       
       <div class="form-group">
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required>
+        <label for="edit-password">Contraseña: (Dejar en blanco para mantener la actual)</label>
+        <input type="password" id="edit-password" name="password">
       </div>
       
-      <div class="form-group">
-        <label for="confirmPassword">Confirmar Contraseña:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" required>
+      <div class="button-group">
+        <button type="button" class="cancel-btn" onclick="window.location.href='dashboard.html'">Cancelar</button>
+        <button type="submit">Guardar Cambios</button>
       </div>
-      
-      <button type="submit">Registrar</button>
-      
-      <div id="register-status"></div>
     </form>
   </div>
   

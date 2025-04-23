@@ -1,18 +1,32 @@
 const express = require('express');
-const cors = require("cors");
-const serverless = require('serverless-http'); // si usas Netlify
-const usersroutes = require("./backend/routes/usersroutes.js");
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const usersRoutes = require('./backend/routes/usersroutes');
 
 const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware
 app.use(cors());
-app.use(express.json()); // ⚠️ Este middleware debe ir ANTES de tus rutas
+app.use(bodyParser.json());
 
-app.use("/users", usersroutes); // ← las rutas vienen después del middleware
+// Routes
+app.use('/api', usersRoutes);
 
-app.get("/", (req, res) => {
-    res.send("Hola mundo");
+// Serve static files from frontend directory
+app.use(express.static('frontend'));
+
+// Base route
+app.get('/', (req, res) => {
+  res.send('API is running. Use /api/user endpoints to interact with the user API.');
 });
 
-app.listen(8888, () => {
-    console.log("✅ Servidor activo");
-});
+// Start server
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
+
+// Export app for serverless functions
+module.exports = app;

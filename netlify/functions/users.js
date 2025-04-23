@@ -1,16 +1,22 @@
-const express = require("express");
-const cors = require("cors");
-const serverless = require("serverless-http");
+const express = require('express');
+const serverless = require('serverless-http');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const usersRoutes = require('../../backend/routes/usersroutes');
 
 const app = express();
-const usersroutes = require("../../backend/routes/usersroutes.js");
 
+// Middleware
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
 
-const router = express.Router();
-router.use("/users", usersroutes);
+// Routes
+app.use('/.netlify/functions/users', usersRoutes);
 
-app.use("/.netlify/functions", router);
+// Not found route
+app.use('*', (req, res) => {
+  res.status(404).json({ message: 'Not Found' });
+});
 
+// Export the serverless function
 module.exports.handler = serverless(app);

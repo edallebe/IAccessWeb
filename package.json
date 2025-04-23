@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build": "netlify-lambda build netlify/functions"
+    "build": "netlify-lambda build netlify/functions -o netlify/functions-build"
   },
   "keywords": [
     "netlify",
@@ -27,4 +27,5 @@
     "netlify-lambda": "^2.0.16",
     "nodemon": "^3.0.1"
   }
+  
 }

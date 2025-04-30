@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iniciar Sesión - Sistema de Usuarios</title>
+  <title>Registro - Sistema de Usuarios</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -34,7 +34,7 @@
       margin-bottom: 5px;
       font-weight: bold;
     }
-    input {
+    input, select {
       width: 100%;
       padding: 8px;
       border: 1px solid #ddd;
@@ -84,8 +84,33 @@
   </div>
   
   <div class="form-container">
-    <h2>Iniciar Sesión</h2>
-    <form id="login-form">
+    <h2>Registro de Usuario</h2>
+    <form id="register-form">
+      <div class="form-group">
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" name="nombres" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="tipoUsuario">Tipo de Usuario:</label>
+        <select id="tipoUsuario" name="tipoUsuario" required>
+          <option value="">Seleccione un tipo</option>
+          <option value="Gestor">Gestor</option>
+          <option value="Administrador">Administrador</option>
+          <option value="Personal de Aseo">Personal de Aseo</option>
+        </select>
+      </div>
+      
       <div class="form-group">
         <label for="nombreUsuario">Nombre de Usuario:</label>
         <input type="text" id="nombreUsuario" name="nombreUsuario" required>
@@ -96,9 +121,14 @@
         <input type="password" id="password" name="password" required>
       </div>
       
-      <button type="submit">Iniciar Sesión</button>
+      <div class="form-group">
+        <label for="confirmPassword">Confirmar Contraseña:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+      </div>
       
-      <div id="login-status"></div>
+      <button type="submit">Registrar</button>
+      
+      <div id="register-status"></div>
     </form>
   </div>
   
